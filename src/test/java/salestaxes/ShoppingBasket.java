@@ -1,6 +1,6 @@
 package salestaxes;
 
-import java.math.*;
+import java.math.BigDecimal;
 import java.util.*;
 
 public class ShoppingBasket {
@@ -24,11 +24,10 @@ public class ShoppingBasket {
 
 	public static class Item {
 
-		private static final BigDecimal ONE_HUNDRED = new BigDecimal(100);
+		private static final double GOOD_TAX_RATE   = 10.;
+		private static final double IMPORT_TAX_RATE =  5.;
 		
-		private static final BigDecimal GOOD_TAX_RATE = BigDecimal.TEN;
-		private static final BigDecimal IMPORT_TAX_RATE = BigDecimal.valueOf(5);
-		
+		@SuppressWarnings("unused")
 		private final String name;
 		private final BigDecimal price;
 		private final boolean taxFree;
@@ -60,8 +59,10 @@ public class ShoppingBasket {
 			return goodtypeTaxes.add(importTaxes);
 		}
 		
-		private static BigDecimal percentage(BigDecimal percentage, BigDecimal amount) {
-			return amount.multiply(percentage).divide(ONE_HUNDRED, RoundingMode.HALF_UP);
+		static BigDecimal percentage(double percentage, BigDecimal amount) {
+			double value = amount.doubleValue() * percentage / 100.;
+			double rounded = Math.ceil(value * 20.) / 20.;
+			return BigDecimal.valueOf(rounded);
 		}
 
 		public Receipt.Line toReceiptLine() {
