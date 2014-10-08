@@ -33,9 +33,9 @@ public class ShoppingBasketItemTest {
 	 *                        videos. I'll remove them, but I leave to allow you to have a feel on
 	 *                        how I work
 	 */
-	@Test public void percentage_returns_a_rounded_up_value() {
-		//assertBigDecimalEquals(new BigDecimal("2.40"), ShoppingBasket.Item.percentage(5., new BigDecimal("47.5")));
-		assertBigDecimalEquals(new BigDecimal("0.60"), ShoppingBasket.Item.percentage(5., new BigDecimal("11.25")));
-	}
+//	@Test public void percentage_returns_a_rounded_up_value() {
+//		assertBigDecimalEquals(new BigDecimal("2.40"), ShoppingBasket.Item.percentage(5., new BigDecimal("47.5")));
+//		assertBigDecimalEquals(new BigDecimal("0.60"), ShoppingBasket.Item.percentage(5., new BigDecimal("11.25")));
+//	}
 
 }

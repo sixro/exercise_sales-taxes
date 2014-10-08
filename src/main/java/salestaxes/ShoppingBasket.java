@@ -59,7 +59,7 @@ public class ShoppingBasket {
 			return goodtypeTaxes.add(importTaxes);
 		}
 		
-		static BigDecimal percentage(double percentage, BigDecimal amount) {
+		private static BigDecimal percentage(double percentage, BigDecimal amount) {
 			double value = amount.doubleValue() * percentage / 100.;
 			double rounded = Math.ceil(value * 20.) / 20.;
 			return BigDecimal.valueOf(rounded);
