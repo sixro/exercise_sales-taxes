@@ -24,6 +24,8 @@ public class ShoppingBasket {
 
 	public static class Item {
 
+		private static final BigDecimal ONE_HUNDRED = new BigDecimal(100);
+		
 		private static final BigDecimal GOOD_TAX_RATE = BigDecimal.TEN;
 		private static final BigDecimal IMPORT_TAX_RATE = BigDecimal.valueOf(5);
 		
@@ -59,7 +61,7 @@ public class ShoppingBasket {
 		}
 		
 		private static BigDecimal percentage(BigDecimal percentage, BigDecimal amount) {
-			return amount.multiply(percentage).divide(new BigDecimal(100), RoundingMode.HALF_UP);
+			return amount.multiply(percentage).divide(ONE_HUNDRED, RoundingMode.HALF_UP);
 		}
 
 		public Receipt.Line toReceiptLine() {
